@@ -1,9 +1,8 @@
 import requests
 import urllib.request
 import re
-import json
-from bs4 import BeautifulSoup
 import os
+from bs4 import BeautifulSoup
 from unidecode import unidecode
 
 # get music and author from a list and return a list of dictionaries
@@ -52,7 +51,7 @@ def search_you_tub(parameters):
   return first_link
 
 
-
+# write your list here!
 URL = "https://open.spotify.com/playlist/37i9dQZF1DX0hWmn8d5pRe#login"
 
 page = requests.get(URL)
