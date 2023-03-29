@@ -6,24 +6,6 @@ from bs4 import BeautifulSoup
 import os
 from unidecode import unidecode
 
-# rename all the mp3 files in the music folder
-def rename_files(folder_path):
-    for filename in os.listdir(folder_path):
-        if filename.endswith(".mp3"):
-            # split the filename by spaces and take the first two parts
-            parts = filename.split(" ")[:2]
-            # join the parts with a hyphen and make it lowercase
-            new_filename = "-".join(parts).lower()
-            # remove any special characters
-            new_filename = "".join(c for c in new_filename if c.isalnum() or c == "-")
-            # add the .mp3 extension
-            new_filename += ".mp3"
-            # create the full path to the old and new filenames
-            old_filepath = os.path.join(folder_path, filename)
-            new_filepath = os.path.join(folder_path, new_filename)
-            # rename the file
-            os.rename(old_filepath, new_filepath)
-
 # get music and author from a list and return a list of dictionaries
 def get_track_info(soup):    
     tracks = soup.find_all('a')
@@ -89,8 +71,6 @@ for i in dics:
   get_you_tub(first_link)
 
 print("-----------------------")
-current_directory = os.getcwd()
-rename_files(current_directory+'musics')
 
 print(" ")
 print("Enjoy")
